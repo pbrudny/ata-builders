@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", sans-serif;
+  --font-heading: "Sora", "Inter", sans-serif;
+
+  --color-background: hsl(0 0% 100%);
+  --color-foreground: hsl(0 0% 10%);
+  --color-card: hsl(0 0% 100%);
+  --color-card-foreground: hsl(0 0% 10%);
+  --color-primary: hsl(27 85% 53%);
+  --color-primary-foreground: hsl(0 0% 100%);
+  --color-secondary: hsl(210 29% 15%);
+  --color-secondary-foreground: hsl(0 0% 100%);
+  --color-muted: hsl(30 10% 96%);
+  --color-muted-foreground: hsl(0 0% 40%);
+  --color-accent: hsl(27 85% 53%);
+  --color-accent-foreground: hsl(0 0% 100%);
+  --color-destructive: hsl(0 84% 60%);
+  --color-destructive-foreground: hsl(0 0% 100%);
+  --color-border: hsl(0 0% 90%);
+  --color-input: hsl(0 0% 90%);
+  --color-ring: hsl(27 85% 53%);
+  --radius: 0.75rem;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+.section-container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 80rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+@media (min-width: 640px) {
+  .section-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .section-container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+.grid-bg {
+  background-image:
+    linear-gradient(hsl(0 0% 90% / 0.5) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(0 0% 90% / 0.5) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.text-gradient {
+  background-image: linear-gradient(to right, hsl(27 85% 53%), hsl(27 95% 45%));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
