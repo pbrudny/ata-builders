@@ -1,12 +1,7 @@
-FROM node:20-alpine AS build
+FROM node:22-alpine AS build
 WORKDIR /app
-RUN echo "=== env (npm/proxy/token) ===" && env | grep -iE 'npm|proxy|token|auth' ; \
-    echo "=== /usr/local/etc/npmrc ===" && cat /usr/local/etc/npmrc 2>&1; \
-    echo "=== ~/.npmrc ===" && cat ~/.npmrc 2>&1; \
-    echo "=== npm config list -l ===" && npm config list -l; \
-    false
 COPY package.json package-lock.json ./
-RUN npm install --registry=https://registry.npmmirror.com/
+RUN npm install
 COPY . .
 RUN npm run build
 
