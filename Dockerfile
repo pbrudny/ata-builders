@@ -1,9 +1,9 @@
 FROM node:20-alpine AS build
 WORKDIR /app
-RUN apk add --no-cache curl
-RUN echo "=== npmjs ===" && curl -sS -i https://registry.npmjs.org/react | head -20; \
-    echo "=== npmmirror ===" && curl -sS -i https://registry.npmmirror.com/react | head -20; \
-    echo "=== github (control) ===" && curl -sS -i https://api.github.com/ | head -20; \
+RUN echo "=== env (npm/proxy/token) ===" && env | grep -iE 'npm|proxy|token|auth' ; \
+    echo "=== /usr/local/etc/npmrc ===" && cat /usr/local/etc/npmrc 2>&1; \
+    echo "=== ~/.npmrc ===" && cat ~/.npmrc 2>&1; \
+    echo "=== npm config list -l ===" && npm config list -l; \
     false
 COPY package.json package-lock.json ./
 RUN npm install --registry=https://registry.npmmirror.com/
