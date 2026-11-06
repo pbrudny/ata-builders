@@ -2,10 +2,10 @@ import { useState } from "react"
 import { Menu, X } from "lucide-react"
 
 const links = [
-  { label: "About", href: "#about" },
+  { label: "Services", href: "#services" },
   { label: "Projects", href: "#projects" },
-  { label: "Roles", href: "#roles" },
-  { label: "Apply", href: "#apply" },
+  { label: "Process", href: "#process" },
+  { label: "About", href: "#about" },
 ]
 
 const buttonBase =
@@ -19,7 +19,7 @@ export default function Navbar() {
       <div className="section-container flex items-center justify-between h-16">
         <a href="#" className="text-lg font-bold font-heading">
           <span className="text-primary">ATA</span>{" "}
-          <span className="text-secondary-foreground">Builders</span>
+          <span className="text-secondary-foreground">Builders Lab</span>
         </a>
 
         <div className="hidden md:flex items-center gap-8">
@@ -33,16 +33,17 @@ export default function Navbar() {
             </a>
           ))}
           <a
-            href="#apply"
+            href="#contact"
             className={`${buttonBase} bg-primary text-primary-foreground hover:bg-primary/90 h-9 px-3`}
           >
-            Apply Now
+            Start a project
           </a>
         </div>
 
         <button
           className="md:hidden p-2 text-secondary-foreground"
           onClick={() => setOpen(!open)}
+          aria-label={open ? "Close menu" : "Open menu"}
         >
           {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
@@ -61,11 +62,11 @@ export default function Navbar() {
             </a>
           ))}
           <a
-            href="#apply"
+            href="#contact"
             onClick={() => setOpen(false)}
             className={`${buttonBase} bg-primary text-primary-foreground hover:bg-primary/90 h-9 px-3 w-full`}
           >
-            Apply Now
+            Start a project
           </a>
         </div>
       )}

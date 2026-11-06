@@ -1,11 +1,10 @@
 import Navbar from "./components/Navbar"
 import Hero from "./components/Hero"
-import About from "./components/About"
+import Services from "./components/Services"
 import Projects from "./components/Projects"
 import Process from "./components/Process"
-import Roles from "./components/Roles"
-import Benefits from "./components/Benefits"
-import Apply from "./components/Apply"
+import About from "./components/About"
+import Contact from "./components/Contact"
 import Footer from "./components/Footer"
 
 function App() {
@@ -13,12 +12,11 @@ function App() {
     <div className="min-h-screen bg-background">
       <Navbar />
       <Hero />
-      <About />
+      <Services />
       <Projects />
       <Process />
-      <Roles />
-      <Benefits />
-      <Apply />
+      <About />
+      <Contact />
       <Footer />
     </div>
   )

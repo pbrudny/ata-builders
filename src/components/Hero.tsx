@@ -1,14 +1,16 @@
 import { ArrowRight } from "lucide-react"
 
 const heroButton =
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 text-base font-semibold px-8 py-3 h-auto rounded-lg shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 transition-all duration-300 hover:-translate-y-0.5"
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium bg-primary text-primary-foreground hover:bg-primary/90 text-base font-semibold px-8 py-3 h-auto rounded-lg shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 transition-all duration-300 hover:-translate-y-0.5"
 
 const heroOutlineButton =
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium disabled:pointer-events-none disabled:opacity-50 border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground text-base font-semibold px-8 py-3 h-auto rounded-lg transition-all duration-300 hover:-translate-y-0.5"
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground text-base font-semibold px-8 py-3 h-auto rounded-lg transition-all duration-300 hover:-translate-y-0.5"
+
+const tags = ["Agentic systems", "RAG", "LLM evaluation", "Workflow automation", "Document AI"]
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-secondary">
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-secondary pt-16">
       <div className="absolute inset-0 grid-bg opacity-20" />
       <div className="absolute top-20 right-20 w-72 h-72 bg-primary/10 rounded-full blur-3xl" />
       <div className="absolute bottom-20 left-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
@@ -28,33 +30,41 @@ export default function Hero() {
         <line x1="200" y1="400" x2="300" y2="300" stroke="hsl(27 95% 45%)" strokeWidth="1" />
       </svg>
 
-      <div className="section-container relative z-10">
+      <div className="section-container relative z-10 py-16">
         <div className="max-w-3xl">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/15 text-primary text-sm font-medium mb-8">
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-            Student Engineering Lab
+            AI engineering studio · Akademia Techniczno-Artystyczna
           </div>
 
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
-            <span className="text-secondary-foreground">ATA</span>{" "}
-            <span className="text-gradient">Builders</span>
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
+            <span className="text-secondary-foreground">We build AI systems</span>{" "}
+            <span className="text-gradient">that do real work</span>
           </h1>
 
-          <p className="text-xl sm:text-2xl font-medium text-secondary-foreground/80 mb-4">
-            Building Real Systems for the University
+          <p className="text-lg sm:text-xl text-secondary-foreground/70 max-w-2xl mb-8">
+            ATA Builders Lab designs, builds and evaluates AI agents, RAG assistants and
+            document automation for universities and companies — from first prototype to
+            a deployed system your team actually uses.
           </p>
 
-          <p className="text-lg text-secondary-foreground/60 max-w-xl mb-10">
-            Join a student engineering team creating AI, automation, and digital
-            systems used in real university operations.
-          </p>
+          <div className="flex flex-wrap gap-2 mb-10">
+            {tags.map((t) => (
+              <span
+                key={t}
+                className="px-3 py-1 rounded-full border border-secondary-foreground/15 text-secondary-foreground/70 text-sm"
+              >
+                {t}
+              </span>
+            ))}
+          </div>
 
           <div className="flex flex-wrap gap-4">
-            <a href="#apply" className={heroButton}>
-              Apply Now <ArrowRight className="ml-1 w-4 h-4" />
+            <a href="#contact" className={heroButton}>
+              Start a project <ArrowRight className="ml-1 w-4 h-4" />
             </a>
-            <a href="#about" className={heroOutlineButton}>
-              Learn More
+            <a href="#projects" className={heroOutlineButton}>
+              See our work
             </a>
           </div>
         </div>

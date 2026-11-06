@@ -1,25 +1,70 @@
-import { Bot, Workflow, CalendarClock, LayoutDashboard } from "lucide-react"
+import { GraduationCap, Building2 } from "lucide-react"
 
-const projects = [
+type Project = {
+  title: string
+  text: string
+  stack: string[]
+}
+
+const clients: {
+  icon: typeof GraduationCap
+  client: string
+  label: string
+  intro: string
+  projects: Project[]
+}[] = [
   {
-    icon: Bot,
-    title: "AI Chatbot",
-    text: "Intelligent assistant for student services — answers FAQs, guides enrollment, and handles requests 24/7.",
+    icon: Building2,
+    client: "SEKA S.A.",
+    label: "Industry partner",
+    intro:
+      "One of the largest health & safety (BHP) training providers in Poland. We work with SEKA on AI and automation for their internal processes.",
+    projects: [
+      {
+        title: "Recruitment management system",
+        text: "Applications arriving by email are turned into candidate profiles: CVs parsed, candidates assigned to branches by city, statuses tracked through the recruitment process. Incomplete applications trigger an automatic request to the candidate. Role-based access for HR and branch managers with Microsoft Entra ID sign-in.",
+        stack: ["Email ingestion", "CV parsing", "Entra ID SSO", "Postgres", "Docker"],
+      },
+      {
+        title: "Next in the pipeline",
+        text: "AI comparison of environmental test results against location-specific norms in PDF, and an assistant that fills client safety questionnaires from SEKA's knowledge base.",
+        stack: ["Document AI", "RAG"],
+      },
+    ],
   },
   {
-    icon: Workflow,
-    title: "Internship Automation",
-    text: "End-to-end workflow automation for internship applications, approvals, and document management.",
-  },
-  {
-    icon: CalendarClock,
-    title: "Scheduling System",
-    text: "Smart scheduling engine for classes, rooms, and faculty — optimized with constraint algorithms.",
-  },
-  {
-    icon: LayoutDashboard,
-    title: "Data Dashboards",
-    text: "Real-time analytics dashboards for university operations, enrollment metrics, and resource usage.",
+    icon: GraduationCap,
+    client: "Akademia Techniczno-Artystyczna",
+    label: "University",
+    intro:
+      "Systems running the internship programme and student services at ATA in Warsaw.",
+    projects: [
+      {
+        title: "Agentic internship coordinator",
+        text: "Agent that reads the internship mailbox, matches messages to students, checks submitted documents and drafts replies for the coordinator to approve.",
+        stack: ["Agents", "Microsoft Graph", "LLM"],
+      },
+      {
+        title: "Internship report reviewer",
+        text: "Checks internship journals and learning-outcome reports against the programme rules and finds evidence for each outcome, producing a review ready for sign-off.",
+        stack: ["Document AI", "OCR", "LLM"],
+      },
+      {
+        title: "ATA RAG assistant",
+        text: "Question answering over university regulations and documents, with answers grounded in cited sources.",
+        stack: ["RAG", "Vector search"],
+      },
+      {
+        title: "AI evaluation platform",
+        text: "Shared evaluation layer for all the tools above: test datasets, automated scoring, tracing and CI checks so regressions are caught before release.",
+        stack: ["Langfuse", "LLM-as-judge", "CI/CD"],
+      },
+      {
+        title: "PDF signer",
+        text: "Fills and signs the university section of internship documents, including scanned PDFs.",
+        stack: ["PDF", "Automation"],
+      },
+    ],
   },
 ]
 
@@ -27,24 +72,53 @@ export default function Projects() {
   return (
     <section id="projects" className="py-24 lg:py-32 bg-muted/50">
       <div className="section-container">
-        <div>
-          <p className="text-sm font-semibold uppercase tracking-widest text-primary mb-3">
-            Projects
-          </p>
-          <h2 className="text-3xl sm:text-4xl font-bold mb-16">What We Build</h2>
-        </div>
+        <p className="text-sm font-semibold uppercase tracking-widest text-primary mb-3">
+          Projects
+        </p>
+        <h2 className="text-3xl sm:text-4xl font-bold mb-6">Selected work</h2>
+        <p className="text-lg text-muted-foreground max-w-2xl mb-16">
+          Systems built for real users with real data — not toy demos.
+        </p>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {projects.map(({ icon: Icon, title, text }) => (
-            <div
-              key={title}
-              className="group relative p-6 rounded-2xl bg-card border hover:border-primary/30 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 h-full"
-            >
-              <div className="w-11 h-11 rounded-lg bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center mb-4 group-hover:from-primary/20 group-hover:to-accent/20 transition-colors">
-                <Icon className="w-5 h-5 text-primary" />
+        <div className="space-y-16">
+          {clients.map(({ icon: Icon, client, label, intro, projects }) => (
+            <div key={client}>
+              <div className="flex items-start gap-4 mb-8">
+                <div className="w-12 h-12 shrink-0 rounded-xl bg-secondary flex items-center justify-center">
+                  <Icon className="w-6 h-6 text-primary" />
+                </div>
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+                    {label}
+                  </p>
+                  <h3 className="text-2xl font-bold">{client}</h3>
+                  <p className="text-muted-foreground mt-1 max-w-2xl">{intro}</p>
+                </div>
               </div>
-              <h3 className="text-lg font-semibold mb-2">{title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">{text}</p>
+
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {projects.map(({ title, text, stack }) => (
+                  <div
+                    key={title}
+                    className="flex flex-col p-6 rounded-2xl bg-card border hover:border-primary/30 hover:shadow-lg transition-all duration-300"
+                  >
+                    <h4 className="text-lg font-semibold mb-2">{title}</h4>
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-4 flex-1">
+                      {text}
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {stack.map((s) => (
+                        <span
+                          key={s}
+                          className="text-xs px-2 py-1 rounded-md bg-primary/10 text-primary font-medium"
+                        >
+                          {s}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           ))}
         </div>
