@@ -101,17 +101,12 @@ const en: Content = {
         client: "SEKA S.A.",
         label: "Industry partner",
         intro:
-          "One of the largest health & safety (BHP) training providers in Poland. We work with SEKA on AI and automation for their internal processes.",
+          "One of the largest health & safety (BHP) training providers in Poland. We support SEKA with AI and process automation.",
         projects: [
           {
             title: "Recruitment management system",
-            text: "Applications arriving by email are turned into candidate profiles: CVs parsed, candidates assigned to branches by city, statuses tracked through the recruitment process. Incomplete applications trigger an automatic request to the candidate. Role-based access for HR and branch managers with Microsoft Entra ID sign-in.",
-            stack: ["Email ingestion", "CV parsing", "Entra ID SSO", "Postgres", "Docker"],
-          },
-          {
-            title: "Next in the pipeline",
-            text: "AI comparison of environmental test results against location-specific norms in PDF, and an assistant that fills client safety questionnaires from SEKA's knowledge base.",
-            stack: ["Document AI", "RAG"],
+            text: "A system that supports HR in handling incoming job applications — from first contact to candidate management — and cuts down manual work for the recruitment team.",
+            stack: ["Process automation", "AI"],
           },
         ],
       },
@@ -139,11 +134,6 @@ const en: Content = {
             title: "AI evaluation platform",
             text: "Shared evaluation layer for all the tools above: test datasets, automated scoring, tracing and CI checks so regressions are caught before release.",
             stack: ["Langfuse", "LLM-as-judge", "CI/CD"],
-          },
-          {
-            title: "PDF signer",
-            text: "Fills and signs the university section of internship documents, including scanned PDFs.",
-            stack: ["PDF", "Automation"],
           },
         ],
       },
@@ -270,17 +260,12 @@ const pl: Content = {
         client: "SEKA S.A.",
         label: "Partner biznesowy",
         intro:
-          "Jeden z największych w Polsce dostawców szkoleń BHP. Współpracujemy z SEKA przy AI i automatyzacji procesów wewnętrznych.",
+          "Jeden z największych w Polsce dostawców szkoleń BHP. Wspieramy SEKA w obszarze AI i automatyzacji procesów.",
         projects: [
           {
             title: "System zarządzania rekrutacjami",
-            text: "Zgłoszenia przychodzące e-mailem zamieniane są w profile kandydatów: analiza CV, przypisanie do oddziału według miasta, śledzenie statusów w procesie rekrutacji. Niekompletne zgłoszenie uruchamia automatyczną prośbę do kandydata o uzupełnienie. Dostęp oparty na rolach dla HR i kierowników oddziałów, logowanie przez Microsoft Entra ID.",
-            stack: ["Import z e-maili", "Analiza CV", "Entra ID SSO", "Postgres", "Docker"],
-          },
-          {
-            title: "Kolejne projekty",
-            text: "Porównywanie przez AI wyników badań środowiskowych z normami dla danej lokalizacji zapisanymi w PDF oraz asystent wypełniający ankiety bezpieczeństwa klientów na podstawie bazy wiedzy SEKA.",
-            stack: ["AI dla dokumentów", "RAG"],
+            text: "System wspierający dział HR w obsłudze napływających zgłoszeń rekrutacyjnych — od pierwszego kontaktu po zarządzanie kandydatami — i ograniczający pracę ręczną zespołu rekrutacji.",
+            stack: ["Automatyzacja procesów", "AI"],
           },
         ],
       },
@@ -308,11 +293,6 @@ const pl: Content = {
             title: "Platforma ewaluacji AI",
             text: "Wspólna warstwa ewaluacji dla wszystkich powyższych narzędzi: zbiory testowe, automatyczna ocena, śledzenie i testy w CI, które wyłapują regresje przed wdrożeniem.",
             stack: ["Langfuse", "LLM-as-judge", "CI/CD"],
-          },
-          {
-            title: "Podpisywanie PDF",
-            text: "Wypełnia i podpisuje część uczelnianą dokumentów praktyk, także w zeskanowanych PDF-ach.",
-            stack: ["PDF", "Automatyzacja"],
           },
         ],
       },
