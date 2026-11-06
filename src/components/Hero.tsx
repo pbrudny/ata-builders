@@ -1,4 +1,5 @@
 import { ArrowRight } from "lucide-react"
+import { useLang } from "../i18n"
 
 const heroButton =
   "inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium bg-primary text-primary-foreground hover:bg-primary/90 text-base font-semibold px-8 py-3 h-auto rounded-lg shadow-lg shadow-primary/25 hover:shadow-xl hover:shadow-primary/30 transition-all duration-300 hover:-translate-y-0.5"
@@ -6,9 +7,9 @@ const heroButton =
 const heroOutlineButton =
   "inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground text-base font-semibold px-8 py-3 h-auto rounded-lg transition-all duration-300 hover:-translate-y-0.5"
 
-const tags = ["Agentic systems", "RAG", "LLM evaluation", "Workflow automation", "Document AI"]
-
 export default function Hero() {
+  const { c } = useLang()
+  const h = c.hero
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-secondary pt-16">
       <div className="absolute inset-0 grid-bg opacity-20" />
@@ -34,22 +35,20 @@ export default function Hero() {
         <div className="max-w-3xl">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/15 text-primary text-sm font-medium mb-8">
             <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-            AI engineering studio · Akademia Techniczno-Artystyczna
+            {h.badge}
           </div>
 
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
-            <span className="text-secondary-foreground">We build AI systems</span>{" "}
-            <span className="text-gradient">that do real work</span>
+            <span className="text-secondary-foreground">{h.title1}</span>{" "}
+            <span className="text-gradient">{h.title2}</span>
           </h1>
 
           <p className="text-lg sm:text-xl text-secondary-foreground/70 max-w-2xl mb-8">
-            ATA Builders Lab designs, builds and evaluates AI agents, RAG assistants and
-            document automation for universities and companies — from first prototype to
-            a deployed system your team actually uses.
+            {h.lead}
           </p>
 
           <div className="flex flex-wrap gap-2 mb-10">
-            {tags.map((t) => (
+            {h.tags.map((t) => (
               <span
                 key={t}
                 className="px-3 py-1 rounded-full border border-secondary-foreground/15 text-secondary-foreground/70 text-sm"
@@ -61,10 +60,10 @@ export default function Hero() {
 
           <div className="flex flex-wrap gap-4">
             <a href="#contact" className={heroButton}>
-              Start a project <ArrowRight className="ml-1 w-4 h-4" />
+              {h.cta} <ArrowRight className="ml-1 w-4 h-4" />
             </a>
             <a href="#projects" className={heroOutlineButton}>
-              See our work
+              {h.secondary}
             </a>
           </div>
         </div>
